@@ -1,6 +1,9 @@
 # .bash_aliases
 # Sourced by .bash_profile
 
+# Easy upgrade
+alias upgrade="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y"
+
 # Easier navigation
 alias ~="cd ~" # Home
 alias -- -="cd -" # Last used dir
