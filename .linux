@@ -12,10 +12,10 @@ sudo apt update && sudo apt full-upgrade -y
 
 ###### Installing programmes (from repo) #####
 ## apt install
-sudo apt install atom # from custom repo
-sudo apt install notable
+sudo apt install atom -y # from custom repo
+sudo apt install notable -y
 # sudo apt install regolith-desktop
-sudo apt install vim
+sudo apt install vim -y
 
 ## snap install
 sudo snap install bitwarden
@@ -27,6 +27,7 @@ sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-
 
 # Install Vundle (VIM plugin manager)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall # Install plugins
 
 ##### Cleanup #####
 sudo apt autoremove -y
