@@ -12,6 +12,9 @@ source ./.linux
 # Symlinking dotfiles                                                    #
 ##########################################################################
 
+##### TODO #####
+# Backup existing files !
+
 CURRENTDIR=$(pwd -L)
 ln -s $CURRENTDIR/.bash_aliases ~/.bash_aliases
 ln -s $CURRENTDIR/.bash_logout ~/.bash_logout
