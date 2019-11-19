@@ -1,36 +1,32 @@
-##########################################################################
-# Updating apt & system                                                  #
-##########################################################################
+##### Adding sources to apt #####
 
-sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
+## Atom Editor (https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 
-##########################################################################
-# Installing programmes                                                  #
-##########################################################################
+## Regolith desktop environment (https://github.com/regolith-linux/regolith-desktop/wiki/Install-Regolith)
+# sudo add-apt-repository -y ppa:kgilmer/regolith-stable
 
-# apt install
-apt install vim
-apt install notable
+##### Updating apt & system #####
+sudo apt update && sudo apt full-upgrade -y
 
-# snap install
+###### Installing programmes (from repo) #####
+## apt install
+sudo apt install atom # from custom repo
+sudo apt install notable
+# sudo apt install regolith-desktop
+sudo apt install vim
+
+## snap install
 sudo snap install bitwarden
 
-# Other
-# VMware
+##### Installing programmes (other sources) #####
+## VMware
 wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
-
 sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-agreed # --set-setting vmware-workstation serialNumber XXXX-...
-
-##########################################################################
-# App-specific configs                                                   #
-##########################################################################
 
 # Install Vundle (VIM plugin manager)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-##########################################################################
-# Regolith desktop environment                                           #
-##########################################################################
-# From: https://github.com/regolith-linux/regolith-desktop/wiki/Install-Regolith
-# sudo add-apt-repository -y ppa:kgilmer/regolith-stable
-# sudo apt install regolith-desktop
+##### Cleanup #####
+sudo apt autoremove -y
