@@ -21,7 +21,7 @@ sudo apt update && sudo apt full-upgrade -y
 ## apt install
 sudo apt install atom -y # from custom repo
 sudo apt install notable -y
-sudo apt install regolith-desktop
+sudo apt install regolith-desktop -y
 sudo apt install vim -y
 
 ## snap install
