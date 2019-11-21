@@ -1,20 +1,60 @@
 # setup
-# Installing apps, setting up Linux (via .linux) and symlinking dotfiles.
-
+# Installing apps, setting up Linux and symlinking dotfiles.
 
 ##########################################################################
 # Setting up Linux                                                       #
 ##########################################################################
 
-source ./.linux
+##### Adding sources to apt #####
+
+## Atom Editor (https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+
+## Regolith desktop environment (https://github.com/regolith-linux/regolith-desktop/wiki/Install-Regolith)
+sudo add-apt-repository -y ppa:kgilmer/regolith-stable
+
+##### Updating apt & system #####
+sudo apt update && sudo apt full-upgrade -y
+
+###### Installing programmes (from repo) #####
+## apt install
+sudo apt install atom -y # from custom repo
+sudo apt install notable -y
+sudo apt install regolith-desktop
+sudo apt install vim -y
+
+## snap install
+sudo snap install bitwarden
+
+##### Installing programmes (other sources) #####
+## VMware
+wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
+sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-agreed # --set-setting vmware-workstation serialNumber XXXX-...
+
+# Install Vundle (VIM plugin manager)
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall # Install plugins
+
+##### Cleanup #####
+sudo apt autoremove -y
+
 
 ##########################################################################
 # Symlinking dotfiles                                                    #
 ##########################################################################
 
-##### TODO #####
-# Backup existing files !
+##### Backup existing dotfiles #####
+CURRENTDIR=$(pwd -L)
+mkdir $CURRENTDIR/dotbackup/
+mv ~/.bash_aliases $CURRENTDIR/dotbackup/.bash_aliases.old
+mv ~/.bash_logout $CURRENTDIR/dotbackup/.bash_logout.old
+mv ~/.bash_profile $CURRENTDIR/dotbackup/.bash_profile.old
+mv ~/.bash_prompt $CURRENTDIR/dotbackup/.bash_prompt.old
+mv ~/.bashrc $CURRENTDIR/dotbackup/.bashrc.old
+mv ~/.vimrc $CURRENTDIR/dotbackup/.vimrc.old
 
+##### Symlinking new dotfiles #####
 CURRENTDIR=$(pwd -L)
 ln -s $CURRENTDIR/.bash_aliases ~/.bash_aliases
 ln -s $CURRENTDIR/.bash_logout ~/.bash_logout
