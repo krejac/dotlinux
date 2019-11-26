@@ -20,12 +20,18 @@ sudo apt update && sudo apt full-upgrade -y
 ###### Installing programmes (from repo) #####
 ## apt install
 sudo apt install atom -y # from custom repo
+sudo apt install curl -y
+sudo apt install htop -y
 sudo apt install notable -y
 sudo apt install regolith-desktop -y
+sudo apt install transmission -y
 sudo apt install vim -y
+sudo apt install vlc -y
+sudo apt install youtube-dl -y
 
 ## snap install
 sudo snap install bitwarden
+sudo snap install cawbird
 
 ##### Installing programmes (other sources) #####
 ## VMware
