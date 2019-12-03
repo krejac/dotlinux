@@ -1,15 +1,11 @@
 # Dotfiles for Linux (Ubuntu / Regolith)
 
-:rotating_light: **WARNING**: Running this *will* change the standard behaviour of Regolith. :rotating_light:
+:rotating_light: **WARNING**: Running this will change the standard behaviour of Ubuntu *drastically*. :rotating_light:
 
 
 ## Usage
 
-Clone this repository.
-
-```bash
-git clone https://github.com/krejac/dotlinux.git
-```
+Clone this repostory
 
 Run setup.
 
@@ -17,13 +13,15 @@ Run setup.
 source ./setup
 ```
 
-Wait as setup runs - can take a few hours depending on your internet connection and machine.
+Wait as setup runs - can take quite som time depending on your internet connection.
 
 ## FAQ
 
 ### What's installed?
 
-Well I'm probably not going to update this readme very often, so you'd better check out  [`setup`](https://github.com/krejac/dotlinux/blob/master/setup) for the nitty gritty details. 
+Most importantly the [Regolith desktop](https://regolith-linux.org/)
+
+Other than that... Well I'm probably not going to update this readme very often, so you'd better check out  [`setup`](https://github.com/krejac/dotlinux/blob/master/setup) for the nitty gritty details. 
 
 ### What do all those .bash-files do?
 
@@ -31,4 +29,4 @@ Nothing ireversible - if you backup your home catalog before running `setup` (th
 
 ### Why are you doing this?
 
-To be able to quickly recover from a fatal incident.
+To be able to quickly recover - and because if I do something more than a couple of times I prefer automation if possible. ;-)
