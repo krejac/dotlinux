@@ -14,16 +14,21 @@ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ 
 ## Regolith desktop environment (https://github.com/regolith-linux/regolith-desktop/wiki/Install-Regolith)
 sudo add-apt-repository -y ppa:kgilmer/regolith-stable
 
+## Balena Etcher (https://www.balena.io/etcher/)
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+
 ##### Updating apt & system #####
 sudo apt update && sudo apt full-upgrade -y
 
 ###### Installing programmes (from repo) #####
 ## apt install
 sudo apt install atom -y # from custom repo
+sudo apt install balena-etcher-electron -y
 sudo apt install curl -y
 sudo apt install htop -y
 sudo apt install notable -y
-sudo apt install regolith-desktop -y
+sudo apt install regolith-desktop -y # from custom repo
 sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
