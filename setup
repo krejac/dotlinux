@@ -1,9 +1,15 @@
-# setup
-# Installing apps, setting up Linux and symlinking dotfiles.
+##########################################################################
+# Linux setup                                                            #
+##########################################################################
 
-##########################################################################
-# Setting up Linux                                                       #
-##########################################################################
+
+##### Set up Git? #####
+## Setting up Git
+read -p "Set up Git? [y/n] " git
+if [[ $git = y ]] ; then
+	read -p "Enter name: " name
+	read -p "Enter email: " email
+fi
 
 ##### Adding sources to apt #####
 
@@ -28,12 +34,13 @@ sudo apt install balena-etcher-electron -y
 sudo apt install curl -y
 sudo apt install htop -y
 sudo apt install notable -y
+sudo apt install powerline fonts-powerline powerline-gitstatus -y
 sudo apt install regolith-desktop -y # from custom repo
 sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
+sudo apt install xclip
 sudo apt install youtube-dl -y
-sudo apt install powerline fonts-powerline powerline-gitstatus -y
 
 ## snap install
 sudo snap install bitwarden
@@ -48,9 +55,31 @@ sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall # Install plugins
 
-##### Cleanup #####
-sudo apt autoremove -y
+##### Configuring Git #####
+if [[ $git = y ]] ; then
+	#read -p "Enter name: " name
+	# Set credentials to use with git
+	git config --global user.name "$name"
+	#read -p "Enter email: " email
+	git config --global user.email "$email"
+	# Generate keys
+	ssh-keygen -t rsa -b 4096 -C "$email"
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_rsa	
+	xclip -sel clip < ~/.ssh/id_rsa.pub
+	echo ""
+	echo "********************************************"
+	echo "*                                          *"
+	echo "* Go go https://github.com/settings/keys   *"
+	echo "* and add new sshkey (copied to clipboard) *"
+	echo "*                                          *"
+	echo "********************************************"
+	echo ""
+	read -p "Press [Enter] to continue..."
+fi
 
+##### Post installation cleanup #####
+sudo apt autoremove -y
 
 ##########################################################################
 # Symlinking dotfiles                                                    #
