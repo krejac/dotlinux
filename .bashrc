@@ -83,6 +83,11 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Powerline (requires powerline installes)
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/share/powerline/bindings/bash/powerline.sh
+fi
+
 # Sourcing.
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile

@@ -33,6 +33,7 @@ sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
 sudo apt install youtube-dl -y
+sudo apt install powerline fonts-powerline powerline-gitstatus -y
 
 ## snap install
 sudo snap install bitwarden
