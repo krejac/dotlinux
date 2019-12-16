@@ -32,6 +32,8 @@ sudo apt update && sudo apt full-upgrade -y
 sudo apt install atom -y # from custom repo
 sudo apt install balena-etcher-electron -y
 sudo apt install curl -y
+sudo apt install dislocker -y # read/write bitlocker encrypted drives
+sudo apt install gparted -y
 sudo apt install htop -y
 sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
