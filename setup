@@ -41,11 +41,14 @@ sudo apt update && sudo apt full-upgrade -y
 sudo apt install atom -y # from custom repo
 sudo apt install balena-etcher-electron -y
 sudo apt install curl -y
+sudo apt install cherrytree -y
 sudo apt install dislocker -y # read/write bitlocker encrypted drives
 sudo apt install docker-ce docker-ce-cli containerd.io -y # from custom repo
+sudo apt install flameshot -y
 sudo apt install gedit -y
 sudo apt install gparted -y
 sudo apt install htop -y
+sudo apt install nmap -y
 sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
 # sudo apt install regolith-desktop -y # from custom repo
@@ -57,7 +60,7 @@ sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
 ## snap install
-sudo snap install bitwarden 
+sudo snap install bitwarden
 sudo snap install cawbird
 
 ##### Installing programmes (other sources) #####
@@ -79,7 +82,7 @@ if [[ $git = y ]] ; then
 	# Generate keys
 	ssh-keygen -t rsa -b 4096 -C "$email"
 	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/id_rsa	
+	ssh-add ~/.ssh/id_rsa
 	xclip -sel clip < ~/.ssh/id_rsa.pub
 	echo ""
 	echo "********************************************"
