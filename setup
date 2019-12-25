@@ -56,6 +56,7 @@ sudo apt install signal-desktop -y # from custom repo
 sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
+sudo apt install wireshark -y
 sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
