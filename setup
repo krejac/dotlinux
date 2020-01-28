@@ -57,12 +57,14 @@ sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
 # sudo apt install regolith-desktop -y # from custom repo
 sudo apt install signal-desktop -y # from custom repo
-sudo apt install transmission -y
 sudo apt install torbrowser-launcher -y
+sudo apt install traceroute -y
+sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
 sudo apt install wireguard openresolv -y # From custom repo
 sudo apt install wireshark -y
+sudo apt install whois -y
 sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
