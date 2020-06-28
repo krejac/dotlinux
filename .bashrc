@@ -92,3 +92,6 @@ fi
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
