@@ -63,10 +63,6 @@ sudo apt install whois -y
 sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
-## snap install
-sudo snap install bitwarden
-sudo snap install cawbird
-
 ##### Installing programmes (other sources) #####
 ## VMware
 wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
