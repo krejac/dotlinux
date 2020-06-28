@@ -11,6 +11,13 @@ if [[ $git = y ]] ; then
 	read -p "Enter email: " email
 fi
 
+##### Add a serial to VMWare? #####
+## Setting up Git
+read -p "Add a serial to VMWare? [y/n] " vmware
+if [[ $vmware = y ]] ; then
+	read -p "Enter serial: " vmserial
+fi
+
 ##### Adding sources to apt #####
 
 ## Atom Editor (https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)
@@ -65,8 +72,13 @@ sudo apt install youtube-dl -y
 
 ##### Installing programmes (other sources) #####
 ## VMware
-wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
-sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-agreed # --set-setting vmware-workstation serialNumber XXXX-...
+if [[ $vmware = y ]] ; then
+	wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
+	sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-agreed --set-setting vmware-workstation serialNumber "$vmserial"
+elif [[ $vmware = n ]]; then
+	wget --directory-prefix=$HOME/Downloads/ --content-disposition --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getworkstation-linux
+	sudo sh $HOME/Downloads/VMware-Workstation*.bundle --console --required --eulas-agreed
+fi
 
 # Install Vundle (VIM plugin manager)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
