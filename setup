@@ -17,9 +17,6 @@ fi
 wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 
-## Regolith desktop environment (https://github.com/regolith-linux/regolith-desktop/wiki/Install-Regolith)
-#sudo add-apt-repository -y ppa:kgilmer/regolith-stable
-
 ## Balena Etcher (https://www.balena.io/etcher/)
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
@@ -48,14 +45,12 @@ sudo apt install cherrytree -y # Notetaking
 sudo apt install dislocker -y # read/write bitlocker encrypted drives
 sudo apt install docker-ce docker-ce-cli containerd.io -y # from custom repo
 sudo apt install evince -y # PDF viewer
-#sudo apt install flameshot -y # Too unstable?
 sudo apt install gedit -y
 sudo apt install gparted -y
 sudo apt install htop -y
 sudo apt install nmap -y
 sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
-# sudo apt install regolith-desktop -y # from custom repo
 sudo apt install signal-desktop -y # from custom repo
 sudo apt install torbrowser-launcher -y
 sudo apt install traceroute -y
