@@ -13,10 +13,14 @@ fi
 
 ##### Add a serial to VMWare? #####
 ## Setting up Git
-read -p "Add a serial to VMWare? [y/n] " vmware
-if [[ $vmware = y ]] ; then
-	read -p "Enter serial: " vmserial
+read -p "Install VMWare? [y/n] " vmware_install_yn
+if [[ $vmware_install_yn = y ]] ; then
+	read -p "Add a serial to VMWare? [y/n] " vmware_serial_yn
+	if [[ $vmware_serial_yn = y ]] ; then
+		read -p "Enter serial: " vmserial
+	fi
 fi
+
 
 ##### Adding sources to apt #####
 
@@ -25,19 +29,19 @@ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 
 ## Balena Etcher (https://www.balena.io/etcher/)
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+#echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 
 ## Signal desktop (https://signal.org/desktop)
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 
 ## Docker Community Edition (https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
 
 ## Wireguard (https://github.com/trailofbits/algo/blob/master/docs/client-linux-wireguard.md)
-sudo add-apt-repository ppa:wireguard/wireguard
+# sudo add-apt-repository ppa:wireguard/wireguard
 
 ##### Updating apt & system #####
 sudo apt update && sudo apt full-upgrade -y
@@ -46,17 +50,17 @@ sudo apt update && sudo apt full-upgrade -y
 ## apt install
 
 sudo apt install atom -y # from custom repo
-sudo apt install balena-etcher-electron -y
+#sudo apt install balena-etcher-electron -y
 sudo apt install curl -y
-sudo apt install cherrytree -y # Notetaking
+#sudo apt install cherrytree -y # Notetaking
 sudo apt install dislocker -y # read/write bitlocker encrypted drives
-sudo apt install docker-ce docker-ce-cli containerd.io -y # from custom repo
+#sudo apt install docker-ce docker-ce-cli containerd.io -y # from custom repo
 sudo apt install evince -y # PDF viewer
-sudo apt install gedit -y
+#sudo apt install gedit -y
 sudo apt install gparted -y
 sudo apt install htop -y
 sudo apt install nmap -y
-sudo apt install notable -y
+#sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
 sudo apt install signal-desktop -y # from custom repo
 sudo apt install torbrowser-launcher -y
@@ -64,7 +68,7 @@ sudo apt install traceroute -y
 sudo apt install transmission -y
 sudo apt install vim -y
 sudo apt install vlc -y
-sudo apt install wireguard openresolv -y # From custom repo
+#sudo apt install wireguard openresolv -y # From custom repo
 sudo apt install wireshark -y
 sudo apt install whois -y
 sudo apt install xclip -y
