@@ -67,6 +67,7 @@ sudo apt install torbrowser-launcher -y
 sudo apt install traceroute -y
 sudo apt install transmission -y
 sudo apt install vim -y
+sudo apt install virtualbox virtualbox-guest-utils virtualbox-ext-pack virtualbox-guest-additions-iso
 sudo apt install vlc -y
 #sudo apt install wireguard openresolv -y # From custom repo
 sudo apt install wireshark -y
