@@ -95,6 +95,7 @@ vim +PluginInstall +qall # Install plugins
 
 # Install Jekyll (static site generator)
 gem install jekyll bundler
+bundle install
 
 ##### Configuring Git #####
 if [[ $git = y ]] ; then
