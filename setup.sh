@@ -76,6 +76,9 @@ sudo apt install whois -y
 sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
+## Dependencies for Jekyll (static site generator)
+sudo apt-get install ruby-full build-essential zlib1g-dev
+
 ##### Installing programmes (other sources) #####
 ## VMware
 if [[ $vmware = y ]] ; then
@@ -89,6 +92,9 @@ fi
 # Install Vundle (VIM plugin manager)
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall # Install plugins
+
+# Install Jekyll (static site generator)
+gem install jekyll bundler
 
 ##### Configuring Git #####
 if [[ $git = y ]] ; then
@@ -112,6 +118,8 @@ if [[ $git = y ]] ; then
 	echo ""
 	read -p "Press [Enter] to continue..."
 fi
+
+
 
 ##### Post installation cleanup #####
 sudo apt autoremove -y
