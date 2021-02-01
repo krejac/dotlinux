@@ -59,6 +59,7 @@ sudo apt install evince -y # PDF viewer
 #sudo apt install gedit -y
 sudo apt install gparted -y
 sudo apt install htop -y
+sudo apt install imagemagick
 sudo apt install nmap -y
 #sudo apt install notable -y
 sudo apt install powerline fonts-powerline powerline-gitstatus -y
